@@ -2,7 +2,7 @@
 
 This guide, written by Kendra Winhall, describes how to find the password for levels 1 through 12 of OverTheWire's Bandit wargame.
 
-## Level 0 -> Level 1
+## Level 0 &rarr; Level 1
 
 Steps:
 
@@ -12,7 +12,7 @@ Steps:
 
 Lesson: This level explores how to list the contents of the current directory using `ls` and read the contents of a specified file using `cat`.
 
-## Level 1 -> Level 2
+## Level 1 &rarr; Level 2
 
 Steps:
 
@@ -22,7 +22,7 @@ Steps:
 
 Lesson: This level explores how to use relative file paths when a file name is a symbol/word that has a special meaning for Unix commands.
 
-## Level 2 -> Level 3
+## Level 2 &rarr; Level 3
 
 Steps:
 
@@ -32,7 +32,7 @@ Steps:
 
 Lesson: This level explores how to deal with a file name that has spaces by enclosing it in single quotes.
 
-## Level 3 -> Level 4
+## Level 3 &rarr; Level 4
 
 Steps:
 
@@ -45,7 +45,7 @@ Steps:
 
 Lesson: This level explores how to change directories using `cd` and view hidden files using `ls -a`.
 
-## Level 4 -> Level 5
+## Level 4 &rarr; Level 5
 
 Steps:
 
@@ -59,7 +59,7 @@ Steps:
 
 Lesson: This level explores how to check file types using the `file` command and how to use the wildcard character `*`.
 
-## Level 5 -> Level 6
+## Level 5 &rarr; Level 6
 
 Steps:
 
@@ -76,13 +76,13 @@ Steps:
 
 Lesson: This level explores how to use the `find` command to find files that meet specific requirements, how to use the pipe character `|` to pass the output of one command into the input of another, and how to use `grep` to search for text patterns.
 
-## Level 6 -> Level 7
+## Level 6 &rarr; Level 7
 
 Steps:
 
 1. Read the instructions, which state that the password is stored somewhere on the server, is owned by user `bandit7` and group `bandit6` and is 33 bytes. 
 2. Type `cd /` to change your current directory to the root directory.
-3. Type `find -user bandit7 -group bandit6 -size 33c` to find all files that meet the requirements. Note that there are many error messages from `stderr`, making it difficult to identify the file that contains the password.
+3. Type `find -user bandit7 -group bandit6 -size 33c` to find all files that meet the requirements. There are many error messages from `stderr`, making it difficult to identify the file that contains the password.
 4. To suppress the error messages, discard all output from `stderr`. Specifically, use the symbol `>` to redirect all output from `stderr` (file descriptor `2`) to `/dev/null` (the null device, which discards all data written to it). Then the command is `find . 2>/dev/null -user bandit7 -group bandit6 -size 33c`.
 5. After typing `find . 2>/dev/null -user bandit7 -group bandit6 -size 33c` observe that `./var/lib/dpkg/info/bandit7.password` meets all the requirements.
 6. Type `cat ./var/lib/dpkg/info/bandit7.password` to view the contents of `./var/lib/dpkg/info/bandit7.password`.
@@ -90,7 +90,7 @@ Steps:
 
 Lesson: This level explores how to reference standard streams using their file descriptors, how to use the `>` character to redirect output, and how to discard data using `/dev/null`.
 
-## Level 7 -> Level 8
+## Level 7 &rarr; Level 8
 
 Steps:
 
@@ -100,7 +100,7 @@ Steps:
 
 Lesson: This level explores how to use `grep` to search for a specific string in a given file.
 
-## Level 8 -> Level 9
+## Level 8 &rarr; Level 9
 
 Steps:
 
@@ -110,7 +110,7 @@ Steps:
 
 Lesson: This level explores how to use `sort`, the pipe character `|`, and `uniq` to find unique lines in a given file.
 
-## Level 9 -> Level 10
+## Level 9 &rarr; Level 10
 
 Steps:
 
@@ -120,7 +120,7 @@ Steps:
 
 Lesson: This level explores how to use `string` to find human-readable strings in a given file. Furthermore, this level combines this new information with concepts from earlier levels (pipes and `grep`) to find a specific string.
 
-## Level 10 -> Level 11
+## Level 10 &rarr; Level 11
 
 Steps:
 
@@ -130,13 +130,16 @@ Steps:
 
 Lesson: This level explores how to use `base64` to encode and decode base64 data.
 
-## Level 11 -> Level 12
+## Level 11 &rarr; Level 12
 
 Steps:
 
 1. Read the instructions, which state that the password is in `data.txt`--except all letters have been rotated by 13 positions. This means that A and a are converted to N and n and so on until M and m are converted to Z and z. Then, loop back to the beginning of the alphabet, so that N and n are converted to A and a and so on until Z and z are converted to M and m.
 2. To translate the contents of the file, type `cat data.txt`. 
-3. Then, pipe the output of this command into the `tr` command. Given an input stream and two arrays of characters, `tr` translates each input character by finding its location in the first array and replacing it with the character in the same relative position in the second array. In this case, the first array consists of the letters in alphabetical order (in both uppercase and lowercase): `[A-Z]` and `[a-z]`. As described above, starting by converting A and a to N and n, move through the alphabet until M and m are converted to Z and z. Then, loop back to the beginning of the alphabet, so that N and n are converted to A and a and so on until Z and z are converted to M and m. Since the first array starts with A (which is converted to N) and ends with Z (which is converted to M), the second array also starts with N and ends with M. Specifically, it starts with N and continues to the end of the alphabet. Then, it loops back to the beginning of the alphabet and continues until M. This is the same for lowercase letters. Therefore, the second array consists of N-Z and A-M as well as n-z and a-m: `[N-ZA-M]` and `[n-za-m]`. Then the `tr` command is `tr '[A-Z][a-z]' '[N-ZA-M][n-za-m]'`. Combine this with the previous command by typing `cat data.txt | tr '[A-Z][a-z]' '[N-ZA-M][n-za-m]'`.
+3. Then, pipe the output of this command into the `tr` command. Given an input stream and two arrays of characters, `tr` translates each input character by finding its location in the first array and replacing it with the character in the same relative position in the second array. 
+    1. In this case, the first array consists of the letters in alphabetical order (in both uppercase and lowercase): `[A-Z]` and `[a-z]`. As described above, starting by converting A and a to N and n, move through the alphabet until M and m are converted to Z and z. Then, loop back to the beginning of the alphabet, so that N and n are converted to A and a and so on until Z and z are converted to M and m. 
+    2. Since the first array starts with A (which is converted to N) and ends with Z (which is converted to M), the second array also starts with N and ends with M. Specifically, it starts with N and continues to the end of the alphabet. Then, it loops back to the beginning of the alphabet and continues until M. This is the same for lowercase letters. Therefore, the second array consists of N-Z and A-M as well as n-z and a-m: `[N-ZA-M]` and `[n-za-m]`. 
+    3. Then the `tr` command is `tr '[A-Z][a-z]' '[N-ZA-M][n-za-m]'`. Combine this with the previous command by typing `cat data.txt | tr '[A-Z][a-z]' '[N-ZA-M][n-za-m]'`.
 4. Note that the password is `7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4`.
 
 Lesson: This level explores how to use `tr` to encode and decode simple substitution ciphers.
