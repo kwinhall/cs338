@@ -134,11 +134,11 @@ Lesson: This level explores how to use `base64` to encode and decode base64 data
 
 Steps:
 
-1. Read the instructions, which state that the password is in `data.txt`--except all letters have been rotated by 13 positions. This means that 'A' and 'a' are converted to 'N' and 'n' and so on until 'M' and 'm' are converted to 'Z' and 'z'. Then, loop back to the beginning of the alphabet, so that 'N' and 'n' are converted to 'A' and 'a' and so on until 'Z' and 'z' are converted to 'M' and 'm'.
+1. Read the instructions, which state that the password is in `data.txt`--except all letters have been rotated by 13 positions. This means that *A* and *a* are converted to *N* and *n* and so on until *M* and *m* are converted to *Z* and *z*. Then, loop back to the beginning of the alphabet, so that *N* and *n* are converted to *A* and *a* and so on until *Z* and *z* are converted to *M* and *m*.
 2. To translate the contents of the file, type `cat data.txt`. 
 3. Then, pipe the output of this command into the `tr` command. Given an input stream and two arrays of characters, `tr` translates each input character by finding its location in the first array and replacing it with the character in the same relative position in the second array. 
     1. In this case, the first array consists of the letters in alphabetical order (in both uppercase and lowercase): `[A-Z]` and `[a-z]`.
-    2. Since the first array starts with 'A' (which is converted to 'N') and ends with 'Z' (which is converted to 'M'), the second array starts with 'N' and ends with 'M'. Specifically, it starts with 'N' and continues to the end of the alphabet. Then, it loops back to the beginning of the alphabet and continues until 'M'. This is the same for lowercase letters. Therefore, the second array consists of N-Z and A-M as well as n-z and a-m: `[N-ZA-M]` and `[n-za-m]`. 
+    2. Since the first array starts with *A* (which is converted to *N*) and ends with *Z* (which is converted to *M*), the second array starts with *N* and ends with *M*. Specifically, it starts with *N* and continues to the end of the alphabet. Then, it loops back to the beginning of the alphabet and continues until *M*. This is the same for lowercase letters. Therefore, the second array consists of N-Z and A-M as well as n-z and a-m: `[N-ZA-M]` and `[n-za-m]`. 
     3. Then the `tr` command is `tr '[A-Z][a-z]' '[N-ZA-M][n-za-m]'`. Combine this with the previous command by typing `cat data.txt | tr '[A-Z][a-z]' '[N-ZA-M][n-za-m]'`.
 4. Note that the password is `7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4`.
 
