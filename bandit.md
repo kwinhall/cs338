@@ -67,10 +67,11 @@ Steps:
 2. Type `cd inhere` to change your current directory to `inhere`.
 3. Type `ls` to list the contents of the current directory. Observe that there are many subdirectories.
 4. Read the instructions for this level. Observe that the file must be human-readable, 1033 bytes in size, and not executable. Here is how to build the command to find it:
-    1. To find all the files in this directory and its subdirectories, type `find .`
-    2. To find files that are 1033 bytes and not executable, type `find . -size 1033c ! -executable`.
-    3. To find files that are 1033 bytes, not executable, and human-readable, use a similar approach to the previous level--the `file` command. Use `exec` to execute the `file` command as follows: `find . -size 1033c ! -executable -exec file {} +` (using `+` is more efficient than `\;`). This command prints the file types of all 1033 byte non executable files. Use `|` (the pipe character) to pass the output of the previous command into the input of `grep` (which searches for specific text patterns). Recall from the previous level that human-readable files are of type `ASCII text`, so this is the desired text pattern. Then, the command is `find . -size 1033c ! -executable -exec file {} + | grep 'ASCII text'`.
-5. After typing `find . -size 1033c ! -executable -exec file {} + | grep 'ASCII text'`, observe that `./maybehere07/.file2` meets all the requirements.
+    1. To find all files in this directory and its subdirectories, type `find .`
+    2. To find all files that are 1033 bytes and not executable, type `find . -size 1033c ! -executable`.
+    3. To print the file types of all files that are 1033 bytes and not executable, use a similar approach to the previous level--the `file` command. Use `exec` to execute the `file` command as follows: `find . -size 1033c ! -executable -exec file {} +` (using `+` is more efficient than `\;`).
+    4. To find all files that are 1033 bytes, not executable, and human-readable, use `|` (the pipe character) to pass the output of the previous command into `grep` (which searches for specific text patterns). Recall from the previous level that human-readable files are of type `ASCII text`, so this is the desired text pattern. Therefore, type `find . -size 1033c ! -executable -exec file {} + | grep 'ASCII text'`.
+5. Observe that `./maybehere07/.file2` meets all the requirements.
 6. Type `cat ./maybehere07/.file2` to view the contents of `./maybehere07/.file2`.
 7. Note that the password is `HWasnPhtq9AVKe0dmk45nxy20cvUa6EG`.
 
