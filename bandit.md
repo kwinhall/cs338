@@ -1,6 +1,6 @@
 # Bandit Steps
 
-This guide, written by Kendra Winhall, describes how to find the password for levels 1 through 12 of OverTheWire's Bandit wargame.
+This guide, written by Kendra Winhall, describes how to find the password for levels 1 through 12 of OverTheWire's [Bandit wargame](https://overthewire.org/wargames/bandit/).
 
 ## Level 0 &rarr; Level 1
 
