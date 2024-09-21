@@ -43,6 +43,8 @@ Written by Kendra Winhall
 
 1. How many TCP connections were opened? How can you tell?
     * 5 TCP connections were opened, as evidenced by the following screenshot, which shows 5 instances of `SYN` packets followed by `SYN-ACK` packets.
+  <img width="1440" alt="tcp-connections" src="https://github.com/user-attachments/assets/f20b7c4b-5393-42a1-bffc-42b34402034c">
+
 
 2. Can you tell where my homepage (index.html) was requested? (If not, why not? If so, include frame summaries and/or other info that supports your answer.)
     * Yes. See Frame 26, which shows the `HTTP GET` request for `index.html`:
