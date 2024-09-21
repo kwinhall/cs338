@@ -6,12 +6,15 @@ Written by Kendra Winhall
 
 1. Identify the parts of the TCP 3-way handshake by listing the frame summaries of the relevant frames.
     * First, the nc client sends a `SYN` packet to the daytime server, as shown by Frame 1:
+
     `1  192.168.64.3  132.163.97.3  TCP  58266 → 13 [SYN] Seq=0 Win=32120 Len=0 MSS=1460 SACK_PERM TSval=981588626 TSecr=0 WS=128`
 
     * Second, the daytime server sends a `SYN-ACK` packet to the nc client, as shown by Frame 2:
+
     `2  132.163.97.3  192.168.64.3  TCP  13 → 58266 [SYN, ACK] Seq=0 Ack=1 Win=65535 Len=0 MSS=1386 WS=64 SACK_PERM`
 
     * Third, the nc client sends an `ACK` packet to the daytime server, as shown by Frame 3:
+
     `3  192.168.64.3  132.163.97.3  TCP  58266 → 13 [ACK] Seq=1 Ack=1 Win=32128 Len=0`
 
 2. What port number does the client (i.e. nc on your Kali computer) use for this interaction?
@@ -22,6 +25,7 @@ Written by Kendra Winhall
 
 4. What frame contains the actual date and time? (Show the frame summary as in question 1 above.)
     * Frame 4 contains the date and time, as evidenced by the protocol and information sections of the frame:
+
     `4  132.163.97.3  192.168.64.3  DAYTIME  DAYTIME Response`
 
 5. What do [SYN] and [ACK] mean?
@@ -30,7 +34,9 @@ Written by Kendra Winhall
 
 6. Which entity (the nc client or the daytime server) initiated the closing of the TCP connection? How can you tell?
     * See Frame 5, which is the first time that the FIN packet is sent:
+
     `5  132.163.97.3  192.168.64.3  TCP  13 → 58266 [FIN, ACK] Seq=52 Ack=1 Win=66560 Len=0`
+
     The source IP is `132.163.97.3` (which is the IP of the daytime server) and the source port is `13` (which is the port number that corresponds to the Daytime Protocol). This means that the daytime server initiated the closing of the connection.
 
 ## HTTP
@@ -40,10 +46,12 @@ Written by Kendra Winhall
 
 2. Can you tell where my homepage (index.html) was requested? (If not, why not? If so, include frame summaries and/or other info that supports your answer.)
     * Yes. See Frame 26, which shows the `HTTP GET` request for `index.html`:
+
     `26  192.168.64.3  172.233.221.124  HTTP  GET /index.html HTTP/1.1` 
 
 3. Can you tell where my photograph (jeff-square-colorado.jpg) was requested? (If not, why not? If so, include frame summaries and/or other info that supports your answer.)
     * Yes. See Frame 30, which shows the `HTTP GET` request for `jeff-square-colorado.jpg`:
+    
     `30  192.168.64.3  172.233.221.124  HTTP  GET /jeff-square-colorado.jpg HTTP/1.1`
 
 ## QUESTIONS
