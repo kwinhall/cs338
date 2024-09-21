@@ -24,13 +24,13 @@ Written by Kendra Winhall
     * Every client needs a different port number so that the server can send the appropriate information to each unique client. If a particular client didn't have a port allocated to it, then the server wouldn't know where to send data so that it reaches that particular client.
 
 4. What frame contains the actual date and time? (Show the frame summary as in question 1 above.)
-    * Frame 4 contains the date and time, as evidenced by the protocol and information sections of the frame:
+    * Frame 4 contains the date and time, as evidenced by its protocol and information sections:
 
     `4  132.163.97.3  192.168.64.3  DAYTIME  DAYTIME Response`
 
 5. What do [SYN] and [ACK] mean?
     * `[SYN]` is a *synchronize* packet, which is a request from a device to establish a TCP connection with another device (in other words, to *synchronize* communication between devices). 
-    * `[ACK]` is an *acknowledge* packet, which is a confirmation that a device received the message from the other device (in other words, to *acknowledge* the message).
+    * `[ACK]` is an *acknowledge* packet, which is confirmation that a device received a message from another device (in other words, to *acknowledge* the message).
 
 6. Which entity (the nc client or the daytime server) initiated the closing of the TCP connection? How can you tell?
     * See Frame 5, which is the first time that the FIN packet is sent:
@@ -51,7 +51,7 @@ Written by Kendra Winhall
 
 3. Can you tell where my photograph (jeff-square-colorado.jpg) was requested? (If not, why not? If so, include frame summaries and/or other info that supports your answer.)
     * Yes. See Frame 30, which shows the `HTTP GET` request for `jeff-square-colorado.jpg`:
-    
+
     `30  192.168.64.3  172.233.221.124  HTTP  GET /jeff-square-colorado.jpg HTTP/1.1`
 
 ## QUESTIONS
