@@ -61,3 +61,5 @@ Written by Kendra Winhall
 * In the HTTP part of this assignment, just going to Jeff's website resulted in over 600 packets being sent. We've learned about how to spot the opening/closing of TCP connections on Wireshark, but how do we interpret all the packets in between? What important processes are happening that we haven't learned about?
 
 * We've skimmed the surface of how to use Wireshark in this assignment. What useful features does Wireshark have that we haven't learned about or used yet?
+
+* I know how to interpret a few parts of the "info" section for most frames (like `Seq` and `Ack`). But I don't understand most of it (like `MSS` or `SACK_PERM`). Can we learn more about what information is being transmitted in these packets?
