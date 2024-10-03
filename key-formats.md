@@ -4,7 +4,7 @@ By Kendra Winhall
 
 ## Private Key
 
-I ran the command `ssh-keygen -t rsa -m pem` to generate my private and public RSA keys.
+I ran the command `ssh-keygen -t rsa -m pem` to generate my RSA private and public key pair.
 
 ### Encoded Contents
 
@@ -53,7 +53,7 @@ y+5xpfAkYmqRKUx3ZcUV3KJwRqqL/ZhUbDh/g1tQJv9YglgmAWFajZfJSCysIaDj
 
 ### Decoded Contents
 
-Referencing the [Appendix of RFC 8017](https://datatracker.ietf.org/doc/html/rfc8017#appendix-A.1.2), I expect that the modulus `n`, public exponent `e`, private exponent `d`, prime number `p`, and prime number `q` will be included in the private key file. The Appendix mentions some other information that will be present in the private key file, but the things I listed are the most relevant to us. 
+Referencing the [Appendix of RFC 8017](https://datatracker.ietf.org/doc/html/rfc8017#appendix-A.1.2), I expect that the modulus `n`, public exponent `e`, private exponent `d`, prime 1 `p`, and prime 2 `q` will be included in the private key file. The Appendix mentions some other information that will be present in the private key file, but the things I listed are the most relevant to us. 
 
 I pasted the contents of my private key file into [Lapo Luchini's ASN.1 decoder](https://lapo.it/asn1js/) and pressed the `decode` button to decode the data.
 
@@ -106,7 +106,7 @@ The fourth relevant integer is given by the following hexdump:
 02 81 C1 00 CD C1 DE 48 A3 67 F7 83 B3 9B F5 EB D5 C9 B9 51 ED 55 74 D8 A1 73 D0 7A E7 59 99 82 37 C0 92 3A 75 A8 6C A9 3A 09 27 B5 F9 5C DD 9A 3D 04 3C E8 82 70 C9 58 7D 68 C4 BD C5 2D F6 2D 8F FD 07 D9 9F 08 39 2F 7A D8 9E E1 E5 EB 28 D6 0A 67 FC 2D B8 19 A3 A9 71 19 0C B5 F0 75 35 4D B2 AA 93 C2 56 37 5A BC 42 28 27 6A 15 9F 58 31 40 CC ED E8 A6 59 19 07 C0 31 0B 4D 4E BC 28 9E EE 98 23 4A EC 5B 9A 86 39 CB F6 75 69 26 03 CC 0E CC 5F 80 97 62 E8 E7 3F F4 D0 6F 30 A5 72 25 94 45 57 25 7E C1 03 8F A3 AC 50 6E F2 1B FE 99 EC 3C 00 D9 F9 CD CF 50 25 02 F6 C5 2A BE CB D9 DC AA 5F 17
 ```
 
-This represents `p`, the first prime number. 
+This represents `p`, which is called "prime 1". 
 
 * The first byte `0x02` means that the following data represents an integer. 
 * The second byte `0x81` means that the integer is definite, long, and that the next byte contains the length of the integer. 
@@ -122,7 +122,7 @@ The fifth relevant integer is given by the following hexdump:
 02 81 C1 00 C8 49 ED C5 CC FF F2 FF F8 3A 4C 34 C3 71 D3 CA A7 CB AD 02 53 DF 14 6B B0 16 08 31 F5 9B 8E ED C7 28 0A 0F AF 71 DD FC 34 2F 27 D5 46 9D 33 20 B7 FB D0 35 46 CB D1 C4 0D 35 1F 17 1D D9 8A 71 9A B5 8E F4 4C A8 14 3B BA 1E 17 9B 0E 52 73 54 DC B5 EE 6B A6 DF 04 EF 57 8F 05 CA F8 9A 70 23 52 3F E2 2B EC D8 AE E7 C9 8A E1 EF DE DA 5F C4 9C 41 4B 29 4D 9D 31 ED F5 E5 80 F6 45 0B D0 45 95 56 48 FF 45 0F 5C 7A B7 59 2C 1F 3C 18 30 7D 84 1E 55 F5 7B B7 55 73 46 C5 B0 60 96 CD C1 A6 FC 71 00 60 EB D3 C3 C7 5B 45 05 43 F7 37 6E DD 02 99 7A 34 4E 0C 4A B1 D6 AC CE AB FC E0 AD 69
 ```
 
-This represents `q`, the second prime number. 
+This represents `q`, which is called "prime 2". 
 
 * The first byte `0x02` means that the following data represents an integer. 
 * The second byte `0x81` means that the integer is definite, long, and that the next byte contains the length of the integer. 
