@@ -192,4 +192,4 @@ Next, let's compute `λ(n) = lcm(p - 1, q - 1)`, check that `gcd(e, λ(n)) = 1`,
 
 <img width="569" alt="Screenshot 2024-10-02 at 10 56 53 PM" src="https://github.com/user-attachments/assets/5742530b-5559-4348-8300-951052451d66">
 
-Based on these sanity checks, I feel confident that the values of the modulus `n`, the public exponent `e`, the private exponent `d`, the prime number `p`, and the prime number `q` are correct.
+Based on these sanity checks, I feel confident that the values of the modulus `n`, the public exponent `e`, the private exponent `d`, prime 1 `p`, and prime 2 `q` are correct.
