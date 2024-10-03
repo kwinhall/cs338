@@ -178,12 +178,18 @@ For the private key, we have `n = 0xA0FAE10C981D53BEC457D25C3605FCB830B168E78A3F
 
 For the public key, we have `n = 0x00a0fae10c981d53bec457d25c3605fcb830b168e78a3fab41dcf82ace1b0b3bbc8fc63572ee0baab60a0045021ebd282ece1bd74a714e44c4bd97d479f174f89bde5fb54593f6f2e205b201a4dba87633d8628524cdbd5dd52c98e2d1209d96a24d7a917ba395b1690f50cf46f2155eb71d5754f657d724005475b4e334968fccd9c079fb1f27772c6d28d10b5b4392a4ca082437ffd272d39ac9436b9ea93d2600a50c9cc931dedfe446108330a838c9f358e30b391d6fa9f648a8c9a76748d98847d40eed0a887d4fec730ab077e3bce99545c0213cc40c4acd9df0e6f58e88659bd5429c04e7a6807e0e31db6588e1f5fafe373c05830adb3f1256349b9417330a1acb2d8ba19a23b6821d356bf2eab4ed88adc824e492f86d1af07e7bd19ab20e28927af2099db211713a22c23c6ef5b9d84556a47915d9df0075d62f19169e6b0cb69454b68fdc8648e858e973c3a7186f1e267042e21226047ebc79affd0c779db234dabdb473190e0e12424e8939c9a622a4423951e7a2a7857c438b6f`. 
 
+<img width="569" alt="Screenshot 2024-10-02 at 10 41 12 PM" src="https://github.com/user-attachments/assets/e0818ccf-410e-4d8d-90e4-fdbec02ca585">
+
 For the private key, we have `e = 0x010001`. For the public key, we also have `e = 0x010001`.
 
 Therefore, we have verified that the values of `n` and `e` are the same for the private key and the public key.
 
-Next, let's check that `p * q = n`. 
+Next, let's check that `p * q = n`:
 
-Next, let's compute `λ(n) = lcm(p - 1, q - 1)`, check that `gcd(e, λ(n)) = 1`, and check that `e*d mod λ(n) = 1`.
+<img width="569" alt="Screenshot 2024-10-02 at 10 49 57 PM" src="https://github.com/user-attachments/assets/b9657e07-3da3-42b9-9369-9f11a9b39457">
+
+Next, let's compute `λ(n) = lcm(p - 1, q - 1)`, check that `gcd(e, λ(n)) = 1`, and check that `e*d mod λ(n) = 1`:
+
+<img width="569" alt="Screenshot 2024-10-02 at 10 56 53 PM" src="https://github.com/user-attachments/assets/5742530b-5559-4348-8300-951052451d66">
 
 Based on these sanity checks, I feel confident that the values of the modulus `n`, the public exponent `e`, the private exponent `d`, the prime number `p`, and the prime number `q` are correct.
