@@ -23,7 +23,7 @@ By Kendra Winhall
         * If `D = D'`, then Bob knows the message has not been modified. If `D != D'`, then Bob knows that the message has been modified.
     * Explanation:
         * Because cryptographic hash functions are deterministic, pre-image resistant, and collision resistant, the only scenario where `D = D'` is where the message that was hashed to create `D` is the exact same message that was hashed to create `D'`. 
-        * Therefore, if Aice sends `M||D` to Bob, Bob knows the original value of `H(M) = D`. When Bob recomputes `H(M) = D'`, he can verify that the message has not been changed by checking that `D = D'`. If `D != D'`, then `M` has changed in transit.
+        * Therefore, if Alice sends `M||D` to Bob, Bob knows the original value of `H(M) = D`. When Bob recomputes `H(M) = D'`, he can verify that the message has not been changed by checking that `D = D'`. If `D != D'`, then `M` has changed in transit.
 
 3. Alice wants to send Bob a long message (in this case, it's a signed contract between AliceCom and BobCom), she doesn't want Eve to be able to read it, and she wants Bob to have confidence that it was Alice who sent the message. Assume for this scenario that AITM is impossible.
     * Description:
