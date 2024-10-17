@@ -59,16 +59,32 @@ There are a couple main ethical questions in this scenario:
 ## E. Discuss whether the ACM Code of Ethics and Professional Conduct offers any relevant guidance.
 
 Here are the relevant section numbers and excerpts:
-* 1.6: "Only the minimum amount of personal information necessary should be collected in a system. The retention and disposal periods for that information should be clearly defined, enforced, and communicated to data subjects. Personal information gathered for a specific purpose should not be used for other purposes without the person's consent..."
-    * This guidance implies that the company should discard all saved location data from the API's archived web logs (and redesign the current system that stores user location data). 
-    * In addition, this guidance implies that the company should not sell users' location data without their consent.
-* 1.7: "Computing professionals are often entrusted with confidential information such as ... client data ... Computing professionals should protect confidentiality except in cases where it is evidence of the violation of law, of organizational regulations, or of the Code."
-    * Similar to the previous point, this guidance implies that the company should discard users' saved location data, redesign the current system that saves users' location data, and refrain from selling users' location data.
-* 2.9: "Robust security should be a primary consideration when designing and implementing systems."
-    * This guidance implies that the company should change its current practice of sending the user's location as a GET parameter and putting it in the URL. Instead, the company should replace this system with something more secure.
-    * In addition, this guidance implies that the company should discard saved location data, so that in the case of an attack, user location data is not compromised.
-* 3.1: "People—including users, customers, colleagues, and others affected directly or indirectly—should always be the central concern in computing."
-    * This guidance implies that the company should protect user data instead of selling it and profiting off of it.
+
+Section 1.6:
+
+> Only the minimum amount of personal information necessary should be collected in a system. The retention and disposal periods for that information should be clearly defined, enforced, and communicated to data subjects. Personal information gathered for a specific purpose should not be used for other purposes without the person's consent...
+
+* This guidance implies that the company should discard all saved location data from the API's archived web logs (and redesign the current system that stores user location data). 
+* In addition, this guidance implies that the company should not sell users' location data without their consent.
+
+Section 1.7: 
+
+> Computing professionals are often entrusted with confidential information such as ... client data ... Computing professionals should protect confidentiality except in cases where it is evidence of the violation of law, of organizational regulations, or of the Code.
+
+* Similar to the previous point, this guidance implies that the company should discard users' saved location data, redesign the current system that saves users' location data, and refrain from selling users' location data.
+
+Section 2.9: 
+
+> Robust security should be a primary consideration when designing and implementing systems.
+
+* This guidance implies that the company should change its current practice of sending the user's location as a GET parameter and putting it in the URL. Instead, the company should replace this system with something more secure.
+* In addition, this guidance implies that the company should discard saved location data, so that in the case of an attack, user location data is not compromised.
+
+Section 3.1: 
+
+> People—including users, customers, colleagues, and others affected directly or indirectly—should always be the central concern in computing.
+
+* This guidance implies that the company should protect user data instead of selling it and profiting off of it.
 
 
 ## F. Describe and justify your recommended action, as well as your answers to any other questions you presented in part A.
